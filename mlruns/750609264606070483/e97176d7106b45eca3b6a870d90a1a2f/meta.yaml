@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/e97176d7106b45eca3b6a870d90a1a2f/artifacts
+end_time: 1777467242286
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: e97176d7106b45eca3b6a870d90a1a2f
+run_name: ARIMA
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777467242210
+status: 3
+tags: []
+user_id: alipa
