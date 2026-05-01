@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/2bc83a65e9fb41f4b8faae86c965620f/artifacts
+end_time: 1777618776614
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: 2bc83a65e9fb41f4b8faae86c965620f
+run_name: ARIMA (Hyperopt)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777618776587
+status: 3
+tags: []
+user_id: alipa

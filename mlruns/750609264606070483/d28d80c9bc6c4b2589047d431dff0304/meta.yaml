@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/d28d80c9bc6c4b2589047d431dff0304/artifacts
+end_time: 1777610568625
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: d28d80c9bc6c4b2589047d431dff0304
+run_name: BEST__Holt-Winters
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777610568586
+status: 3
+tags: []
+user_id: alipa
