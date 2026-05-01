@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/c8fb59976e3544cfa6ee82d3aa7d3baa/artifacts
+end_time: 1777626273783
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: c8fb59976e3544cfa6ee82d3aa7d3baa
+run_name: XGBoost (tuned)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777626273756
+status: 3
+tags: []
+user_id: alipa

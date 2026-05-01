@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/f46a503af94141c782791532e1c7c50a/artifacts
+end_time: 1777626273895
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: f46a503af94141c782791532e1c7c50a
+run_name: XGBoost (Hyperopt)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777626273869
+status: 3
+tags: []
+user_id: alipa

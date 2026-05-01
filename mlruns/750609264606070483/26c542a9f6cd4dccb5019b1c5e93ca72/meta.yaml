@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/26c542a9f6cd4dccb5019b1c5e93ca72/artifacts
+end_time: 1777626273672
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: 26c542a9f6cd4dccb5019b1c5e93ca72
+run_name: Holt-Winters
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777626273650
+status: 3
+tags: []
+user_id: alipa
