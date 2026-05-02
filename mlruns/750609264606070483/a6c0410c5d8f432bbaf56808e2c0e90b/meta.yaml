@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/a6c0410c5d8f432bbaf56808e2c0e90b/artifacts
+end_time: 1777639843305
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: a6c0410c5d8f432bbaf56808e2c0e90b
+run_name: Prophet (Hyperopt)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777639843280
+status: 3
+tags: []
+user_id: alipa
