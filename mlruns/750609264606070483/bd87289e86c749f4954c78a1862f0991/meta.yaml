@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/bd87289e86c749f4954c78a1862f0991/artifacts
+end_time: 1777731558233
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: bd87289e86c749f4954c78a1862f0991
+run_name: LSTM (Hyperopt)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777731558204
+status: 3
+tags: []
+user_id: alipa
