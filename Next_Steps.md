@@ -1,6 +1,6 @@
 # Retail Sales Forecasting — Next Steps & Technical Roadmap
 
-Based on a full review of the four project notebooks (`1- W1-Project Preparation`, `2- W1-Feature_Engineering`, `9- W3-mlflow-new-chaged & hyperopt-added`, `10- W3-streamlit`) and the current results, the following technical improvements are recommended.
+Based on a full review of the four project notebooks (`1- Project Preparation`, `2- Feature_Engineering`, `3- Mlflow-new-chaged & hyperopt-added`, `4- Streamlit`) and the current results, the following technical improvements are recommended.
 
 ---
 

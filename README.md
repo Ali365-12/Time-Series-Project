@@ -20,10 +20,10 @@ A complete machine learning pipeline for daily retail sales forecasting, built o
 ## Repository Structure
 
 ```
-├── 1- W1-Project Preparation.ipynb       # EDA on all raw datasets
-├── 2- W1-Feature_Engineering.ipynb       # Data merging + feature engineering + EDA
-├── 3- W3-mlflow-new-chaged & hyperopt-added.ipynb  # Model training, tuning, MLflow
-├── 4- W3-streamlit.ipynb                # Streamlit app development
+├── 1- Project Preparation.ipynb       # EDA on all raw datasets
+├── 2- Feature_Engineering.ipynb       # Data merging + feature engineering + EDA
+├── 3- Mlflow-new-chaged & hyperopt-added.ipynb  # Model training, tuning, MLflow
+├── 4- Streamlit.ipynb                # Streamlit app development
 ├── app_prototype.py                      # Deployable Streamlit application
 ├── data/
 │   ├── timeseries.csv                    # Daily unit sales
@@ -53,7 +53,7 @@ Four raw CSV files are merged into a single feature-rich dataset:
 
 ## Notebooks
 
-### 1 — Project Preparation (`1- W1-Project Preparation.ipynb`)
+### 1 — Project Preparation (`1- Project Preparation.ipynb`)
 
 Exploratory Data Analysis on each raw dataset individually before any merging.
 
@@ -64,7 +64,7 @@ Exploratory Data Analysis on each raw dataset individually before any merging.
 
 ---
 
-### 2 — Feature Engineering (`2- W1-Feature_Engineering.ipynb`)
+### 2 — Feature Engineering (`2- Feature_Engineering.ipynb`)
 
 Merges all four datasets and engineers 24 predictive features. Produces `timeseries_with_features.csv`.
 
@@ -86,7 +86,7 @@ Post-engineering EDA covers unit sales distribution by day of week, month, and y
 
 ---
 
-### 3 — Modeling, Tuning & MLflow (`3- W3-mlflow-new-chaged & hyperopt-added.ipynb`)
+### 3 — Modeling, Tuning & MLflow (`3- Mlflow-new-chaged & hyperopt-added.ipynb`)
 
 Trains five model families, applies Bayesian hyperparameter tuning to each, compares all results, saves the best model, and logs everything to MLflow.
 
@@ -133,7 +133,7 @@ The best model is saved to `models/best_model.pkl` and logged in MLflow as `BEST
 
 ---
 
-### 4 — Streamlit Application (`4- W3-streamlit.ipynb` + `app_prototype.py`)
+### 4 — Streamlit Application (`4- Streamlit.ipynb` + `app_prototype.py`)
 
 Introduces Streamlit and builds a fully interactive forecasting dashboard for business stakeholders.
 
@@ -163,10 +163,10 @@ pip install pandas numpy matplotlib scikit-learn xgboost statsmodels prophet mlf
 ### Run the notebooks in order
 
 ```
-1- W1-Project Preparation.ipynb
-2- W1-Feature_Engineering.ipynb
-3- W3-mlflow-new-chaged & hyperopt-added.ipynb
-4- W3-streamlit.ipynb  (optional — for app development walkthrough)
+1- Project Preparation.ipynb
+2- Feature_Engineering.ipynb
+3- Mlflow-new-chaged & hyperopt-added.ipynb
+4- Streamlit.ipynb  (optional — for app development walkthrough)
 ```
 
 ### Launch the Streamlit app
