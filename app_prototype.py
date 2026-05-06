@@ -14,7 +14,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 from datetime import date
-import mlflow
+try:
+    import mlflow
+    MLFLOW_AVAILABLE = True
+except Exception:
+    MLFLOW_AVAILABLE = False
 from io import BytesIO
 from fpdf import FPDF
 from sklearn.ensemble import IsolationForest
@@ -85,6 +89,8 @@ def load_model_name():
 @st.cache_data
 def load_mlflow_metrics():
     """Load all model metrics from MLflow"""
+    if not MLFLOW_AVAILABLE:
+        return pd.DataFrame()
     try:
         mlflow.set_tracking_uri("file:///" + MLFLOW_PATH.replace("\\", "/"))
         client = mlflow.tracking.MlflowClient()
