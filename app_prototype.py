@@ -177,25 +177,50 @@ def perform_backtest(df, model, features, test_size=0.2):
     """
     cutoff_idx = int(len(df) * (1 - test_size))
     test_df = df.iloc[cutoff_idx:]
+    model_type = type(model).__name__
 
     backtest_results = []
-    for i in range(len(test_df)):
-        cutoff_date = test_df.index[i]
-        try:
-            pred_df = make_forecast(df, model, features, cutoff_date, n_days=1)
-            actual = test_df[TARGET].iloc[i]
-            pred = pred_df['forecast'].iloc[0] if len(pred_df) > 0 else 0
 
-            backtest_results.append({
-                'date': cutoff_date,
-                'actual': actual,
-                'prediction': pred,
-                'error': actual - pred,
-                'abs_error': abs(actual - pred),
-                'pct_error': abs(actual - pred) / actual * 100 if actual > 0 else 0
-            })
-        except:
-            pass
+    # ARIMA/Holt-Winters: model.forecast(steps=1) always forecasts from training
+    # end and ignores cutoff_date, producing a flat line. Fix: make one
+    # multi-step forecast covering all test days so each step varies correctly.
+    if any(t in model_type for t in ('SARIMAXResults', 'ARIMAResults',
+                                      'HoltWintersResults', 'ExponentialSmoothing')):
+        n_steps = len(test_df)
+        try:
+            all_preds = model.forecast(steps=n_steps)
+            for i in range(n_steps):
+                actual = test_df[TARGET].iloc[i]
+                pred = max(0, float(all_preds.iloc[i]))
+                backtest_results.append({
+                    'date': test_df.index[i],
+                    'actual': actual,
+                    'prediction': round(pred, 2),
+                    'error': actual - pred,
+                    'abs_error': abs(actual - pred),
+                    'pct_error': abs(actual - pred) / actual * 100 if actual > 0 else 0
+                })
+        except Exception as e:
+            st.warning(f"Backtest error: {e}")
+
+    else:
+        # XGBoost / sklearn: make_forecast uses feature rows per day, works correctly
+        for i in range(len(test_df)):
+            cutoff_date = test_df.index[i]
+            try:
+                pred_df = make_forecast(df, model, features, cutoff_date, n_days=1)
+                actual = test_df[TARGET].iloc[i]
+                pred = pred_df['forecast'].iloc[0] if len(pred_df) > 0 else 0
+                backtest_results.append({
+                    'date': cutoff_date,
+                    'actual': actual,
+                    'prediction': pred,
+                    'error': actual - pred,
+                    'abs_error': abs(actual - pred),
+                    'pct_error': abs(actual - pred) / actual * 100 if actual > 0 else 0
+                })
+            except:
+                pass
 
     results_df = pd.DataFrame(backtest_results)
 
