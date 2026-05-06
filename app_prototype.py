@@ -136,10 +136,10 @@ def generate_pdf_report(cutoff_date, n_days, forecast_df, metrics_df, selected_m
     pdf.cell(0, 10, "Forecast Summary", ln=True)
 
     pdf.set_font("Arial", "", 10)
-    pdf.cell(0, 8, f"Average Forecast: ${forecast_df['forecast'].mean():.2f}", ln=True)
-    pdf.cell(0, 8, f"Min Forecast: ${forecast_df['forecast'].min():.2f}", ln=True)
-    pdf.cell(0, 8, f"Max Forecast: ${forecast_df['forecast'].max():.2f}", ln=True)
-    pdf.cell(0, 8, f"Total (Sum): ${forecast_df['forecast'].sum():.2f}", ln=True)
+    pdf.cell(0, 8, f"Average Forecast: {forecast_df['forecast'].mean():.2f}", ln=True)
+    pdf.cell(0, 8, f"Min Forecast: {forecast_df['forecast'].min():.2f}", ln=True)
+    pdf.cell(0, 8, f"Max Forecast: {forecast_df['forecast'].max():.2f}", ln=True)
+    pdf.cell(0, 8, f"Total (Sum): {forecast_df['forecast'].sum():.2f}", ln=True)
 
     if not metrics_df.empty and selected_model:
         model_metrics = metrics_df[metrics_df['Model'] == selected_model]
@@ -159,7 +159,7 @@ def generate_pdf_report(cutoff_date, n_days, forecast_df, metrics_df, selected_m
     pdf.set_font("Arial", "", 9)
 
     for idx, row in forecast_df.head(10).reset_index().iterrows():
-        pdf.cell(0, 7, f"{row['date'].strftime('%Y-%m-%d')}: ${row['forecast']:.2f}", ln=True)
+        pdf.cell(0, 7, f"{row['date'].strftime('%Y-%m-%d')}: {row['forecast']:.2f}", ln=True)
 
     if len(forecast_df) > 10:
         pdf.cell(0, 7, f"... and {len(forecast_df) - 10} more days", ln=True)
@@ -445,13 +445,13 @@ if run_button:
             st.subheader("📈 Forecast Statistics")
             col1, col2, col3, col4 = st.columns(4)
             with col1:
-                st.metric("Average Forecast", f"${forecast_df['forecast'].mean():.2f}")
+                st.metric("Average Forecast", f"{forecast_df['forecast'].mean():.2f}")
             with col2:
-                st.metric("Min Forecast", f"${forecast_df['forecast'].min():.2f}")
+                st.metric("Min Forecast", f"{forecast_df['forecast'].min():.2f}")
             with col3:
-                st.metric("Max Forecast", f"${forecast_df['forecast'].max():.2f}")
+                st.metric("Max Forecast", f"{forecast_df['forecast'].max():.2f}")
             with col4:
-                st.metric("Total (Sum)", f"${forecast_df['forecast'].sum():.2f}")
+                st.metric("Total (Sum)", f"{forecast_df['forecast'].sum():.2f}")
 
             # Forecast table
             st.subheader("Forecast values")
@@ -552,9 +552,9 @@ if run_button:
                 st.subheader("Backtest Performance")
                 col1, col2, col3 = st.columns(3)
                 with col1:
-                    st.metric("Backtest MAE", f"${backtest_metrics['MAE']:.2f}")
+                    st.metric("Backtest MAE", f"{backtest_metrics['MAE']:.2f}")
                 with col2:
-                    st.metric("Backtest RMSE", f"${backtest_metrics['RMSE']:.2f}")
+                    st.metric("Backtest RMSE", f"{backtest_metrics['RMSE']:.2f}")
                 with col3:
                     st.metric("Backtest MAPE", f"{backtest_metrics['MAPE']:.1f}%")
 

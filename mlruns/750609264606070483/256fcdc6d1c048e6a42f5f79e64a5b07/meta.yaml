@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/256fcdc6d1c048e6a42f5f79e64a5b07/artifacts
+end_time: 1778056481195
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: 256fcdc6d1c048e6a42f5f79e64a5b07
+run_name: LSTM
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778056481167
+status: 3
+tags: []
+user_id: alipa
