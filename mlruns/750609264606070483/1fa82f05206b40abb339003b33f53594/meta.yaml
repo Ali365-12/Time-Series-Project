@@ -1,0 +1,15 @@
+artifact_uri: file:///C://Users//alipa//Documents//3- Academic//6- Data Science, phyton//1-
+  class files//9- Time Series Modeling//Time-Series/mlruns/750609264606070483/1fa82f05206b40abb339003b33f53594/artifacts
+end_time: 1777994704335
+entry_point_name: ''
+experiment_id: '750609264606070483'
+lifecycle_stage: active
+run_id: 1fa82f05206b40abb339003b33f53594
+run_name: Prophet
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777994704306
+status: 3
+tags: []
+user_id: alipa
