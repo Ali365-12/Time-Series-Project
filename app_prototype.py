@@ -28,7 +28,7 @@ warnings.filterwarnings("ignore")
 
 # ── Paths ─────────────────────────────────────────────────────
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR    = os.path.join(PROJECT_DIR, "data")
+DATA_DIR    = os.path.join(PROJECT_DIR, "Data")
 MODELS_DIR  = os.path.join(PROJECT_DIR, "models")
 MLFLOW_PATH = os.path.join(PROJECT_DIR, "mlruns")
 
