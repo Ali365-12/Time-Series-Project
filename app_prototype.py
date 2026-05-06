@@ -370,6 +370,9 @@ with st.expander("🔧 Debug info"):
     st.write(f"MODELS_DIR exists: `{os.path.exists(MODELS_DIR)}`")
     st.write(f"best_model.pkl exists: `{os.path.exists(os.path.join(MODELS_DIR, 'best_model.pkl'))}`")
     st.write(f"DATA_DIR exists: `{os.path.exists(DATA_DIR)}`")
+    st.write(f"Files in PROJECT_DIR: `{os.listdir(PROJECT_DIR)}`")
+    if os.path.exists(DATA_DIR):
+        st.write(f"Files in DATA_DIR: `{os.listdir(DATA_DIR)}`")
 
 # Sidebar
 st.sidebar.header("⚙️ Forecast settings")
