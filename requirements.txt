@@ -3,9 +3,7 @@ pandas
 numpy
 matplotlib
 joblib
-mlflow
+mlflow>=2.14.0
 scikit-learn
 statsmodels
 fpdf2
-protobuf<4.0
-setuptools
