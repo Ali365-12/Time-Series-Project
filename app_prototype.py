@@ -364,6 +364,13 @@ def make_forecast(df, model, features, cutoff_date, n_days=1):
 st.title("📊 Retail Sales Forecasting")
 st.write("Corporacion Favorita — Guayas region")
 
+# Temporary debug — remove after confirming paths
+with st.expander("🔧 Debug info"):
+    st.write(f"PROJECT_DIR: `{PROJECT_DIR}`")
+    st.write(f"MODELS_DIR exists: `{os.path.exists(MODELS_DIR)}`")
+    st.write(f"best_model.pkl exists: `{os.path.exists(os.path.join(MODELS_DIR, 'best_model.pkl'))}`")
+    st.write(f"DATA_DIR exists: `{os.path.exists(DATA_DIR)}`")
+
 # Sidebar
 st.sidebar.header("⚙️ Forecast settings")
 
