@@ -3,7 +3,6 @@ pandas
 numpy
 matplotlib
 joblib
-mlflow-skinny>=2.14.0
 scikit-learn
 statsmodels
 fpdf2

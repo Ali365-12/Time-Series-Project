@@ -14,7 +14,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 from datetime import date
-import mlflow
+# mlflow import removed — metrics are read directly from mlruns folder
+# to avoid Python 3.14 / protobuf incompatibility on Streamlit Cloud
 from io import BytesIO
 from fpdf import FPDF
 from sklearn.ensemble import IsolationForest
@@ -84,35 +85,51 @@ def load_model_name():
 # ── Load MLflow metrics ───────────────────────────────────────
 @st.cache_data
 def load_mlflow_metrics():
-    """Load all model metrics from MLflow"""
+    """Load model metrics directly from mlruns folder — no mlflow import needed"""
     try:
-        mlflow.set_tracking_uri("file:///" + MLFLOW_PATH.replace("\\", "/"))
-        client = mlflow.tracking.MlflowClient()
-        experiment = client.get_experiment_by_name("retail_sales_forecasting")
-
-        if experiment is None:
-            return pd.DataFrame()
-
-        runs = client.search_runs(
-            experiment_ids=[experiment.experiment_id],
-            order_by=["start_time DESC"]
-        )
-
         rows = []
-        for run in runs:
-            rows.append({
-                'Model': run.info.run_name,
-                'MAE': run.data.metrics.get('MAE'),
-                'RMSE': run.data.metrics.get('RMSE'),
-                'MAPE': run.data.metrics.get('MAPE'),
-                'Bias': run.data.metrics.get('Bias'),
-                'R2': run.data.metrics.get('R2'),
-            })
+        for exp_id in os.listdir(MLFLOW_PATH):
+            exp_path = os.path.join(MLFLOW_PATH, exp_id)
+            if not os.path.isdir(exp_path) or exp_id.startswith('.'):
+                continue
+            for run_id in os.listdir(exp_path):
+                run_path = os.path.join(exp_path, run_id)
+                metrics_path = os.path.join(run_path, 'metrics')
+                tags_path    = os.path.join(run_path, 'tags')
+                if not os.path.isdir(metrics_path):
+                    continue
+                name_file = os.path.join(tags_path, 'mlflow.runName')
+                if not os.path.exists(name_file):
+                    continue
+                with open(name_file) as f:
+                    run_name = f.read().strip()
 
+                def read_metric(name):
+                    p = os.path.join(metrics_path, name)
+                    if os.path.exists(p):
+                        with open(p) as f:
+                            parts = f.readline().strip().split()
+                            return float(parts[1]) if len(parts) >= 2 else None
+                    return None
+
+                mae = read_metric('MAE')
+                if mae is None:
+                    continue
+                rows.append({
+                    'Model': run_name,
+                    'MAE':  mae,
+                    'RMSE': read_metric('RMSE'),
+                    'MAPE': read_metric('MAPE'),
+                    'Bias': read_metric('Bias'),
+                    'R2':   read_metric('R2'),
+                })
+
+        if not rows:
+            return pd.DataFrame()
         df_metrics = pd.DataFrame(rows).dropna(subset=['MAE'])
         df_metrics = df_metrics.drop_duplicates(subset='Model', keep='first')
         return df_metrics.sort_values('MAE').reset_index(drop=True)
-    except:
+    except Exception:
         return pd.DataFrame()
 
 # ── Generate PDF Report ───────────────────────────────────────
