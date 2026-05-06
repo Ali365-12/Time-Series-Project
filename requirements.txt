@@ -8,3 +8,4 @@ scikit-learn
 statsmodels
 fpdf2
 protobuf<4.0
+setuptools
